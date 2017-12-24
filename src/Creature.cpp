@@ -31,8 +31,14 @@ void Creature::fillHealth() {
 
 }
 
+void Creature::damage(const unsigned &amount) {
+
+    curHP = (amount > curHP)? 0 : curHP-amount;
+
+}
+
 bool Creature::isDead() {
 
-    return curHP > 0? true:false;
+    return curHP > 0? false : true;
 
 }

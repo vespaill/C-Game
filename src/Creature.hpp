@@ -8,7 +8,7 @@ using namespace std;
 
 class Creature {
 
-public:
+protected:
     string name;
     int x;                  // location x
     int y;                  // location y
@@ -24,12 +24,14 @@ public:
     unsigned AP;             // Attack power
     unsigned MP;             // Magic power
 
+public:
     Creature(const string& ni="new-creature", const int& xi=0, const int& yi=0,
              const unsigned& vi=1, const unsigned& si=1, const unsigned& ii=1);
 
     void updateTraits();
     void fillHealth();
     bool isDead();
+    void damage(const unsigned &amount);
 
 };
 

@@ -4,6 +4,4 @@ int main() {
 
     Creature c1;
 
-    cout << c1.name;
-
 }
