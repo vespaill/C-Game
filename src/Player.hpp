@@ -3,7 +3,6 @@
 
 #include "Creature.hpp"
 
-
 class Player: public Creature {
 
 private:
@@ -17,7 +16,7 @@ public:
     bool shouldLevelUp();
     void levelUp();
     void slightAllTraitsIncrement(const unsigned& amount=5);
-    bool chooseStatToLevel();
+    // bool chooseStatToLevel();
 
 
 };

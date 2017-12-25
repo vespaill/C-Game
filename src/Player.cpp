@@ -19,7 +19,7 @@ void Player::levelUp() {
         xpNeededToLvl = pow(xpNeededToLvl, 2);
 
         slightAllTraitsIncrement();
-        chooseStatToLevel();
+        // chooseStatToLevel();
 
 }
 

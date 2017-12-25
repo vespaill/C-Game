@@ -1,6 +1,6 @@
 #include "Creature.hpp"
 
-Creature::Creature(const string& ni, const int& xi, const int& yi,
+Creature::Creature(const std::string& ni, const int& xi, const int& yi,
                    const unsigned& vi, const unsigned& si, const unsigned& ii) {
 
     name = ni;
@@ -82,7 +82,7 @@ void Creature::damage(const unsigned &amount) {
 
 void Creature::displayCreatureInformation() {
 
-    cout << "        name : " << name << endl;
+    std::cout << "        name : " << name << std::endl;
     displayLocation();
     displayStats();
     displayTraits();
@@ -91,23 +91,23 @@ void Creature::displayCreatureInformation() {
 
 void Creature::displayLocation() {
 
-    cout << " coordinates : (" << x << ", " << y << ')' << endl;
+    std::cout << " coordinates : (" << x << ", " << y << ')' << std::endl;
 
 }
 
 void Creature::displayStats() {
 
-    cout << "       vigor : " << vigor << endl
-         << "    strength : " << strength << endl
-         << "intelligence : " << intelligence << endl;
+    std::cout << "       vigor : " << vigor << std::endl
+              << "    strength : " << strength << std::endl
+              << "intelligence : " << intelligence << std::endl;
 
 }
 
 void Creature::displayTraits() {
 
-    cout << "          HP : " << curHP << '/' << HP << endl
-         << "          AP : " << AP << endl
-         << "          MP : " << MP << endl
-         << "         LVL : " << LVL << endl;
+    std::cout << "          HP : " << curHP << '/' << HP << std::endl
+              << "          AP : " << AP << std::endl
+              << "          MP : " << MP << std::endl
+              << "         LVL : " << LVL << std::endl;
 
 }

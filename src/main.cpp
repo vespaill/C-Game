@@ -10,7 +10,7 @@ int main() {
         p1.increaseStat('v');
         p1.increaseStat('s');
         p1.increaseStat('i');
-        cout << endl;
+        std::cout << std::endl;
     }
 
 }

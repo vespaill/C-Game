@@ -8,7 +8,7 @@ const unsigned MAX_HP = 20484;
 class Creature {
 
 protected:
-    string name;
+    std::string name;
     int x;                  // location x
     int y;                  // location y
 
@@ -26,7 +26,7 @@ protected:
     unsigned curHP;
 
 public:
-    Creature(const string& ni="new-creature", const int& xi=0, const int& yi=0,
+    Creature(const std::string& ni="new-creature", const int& xi=0, const int& yi=0,
              const unsigned& vi=1, const unsigned& si=1, const unsigned& ii=1);
     Creature(const Creature& nc);
 
