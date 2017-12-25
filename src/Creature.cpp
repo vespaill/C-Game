@@ -13,7 +13,13 @@ Creature::Creature(const string& ni, const int& xi, const int& yi,
     updateTraits();
     fillHealth();
 
-    cout << name << " is alive!" << endl;
+    // cout << name << " is alive!" << endl;
+
+}
+
+bool Creature::isDead() {
+
+    return curHP > 0? false : true;
 
 }
 
@@ -37,8 +43,13 @@ void Creature::damage(const unsigned &amount) {
 
 }
 
-bool Creature::isDead() {
-
-    return curHP > 0? false : true;
-
+void Creature::displayStats() {
+    cout << "        name : " << name << endl
+         << " coordinates : (" << x << ", " << y << ')' << endl
+         << "          HP : " << curHP << '/' << HP << endl
+         << "          AP : " << AP << endl
+         << "          MP : " << MP << endl
+         << "       vigor : " << vigor << endl
+         << "    strength : " << strength << endl
+         << "intelligence : " << intelligence << endl;
 }

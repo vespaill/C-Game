@@ -27,11 +27,11 @@ protected:
 public:
     Creature(const string& ni="new-creature", const int& xi=0, const int& yi=0,
              const unsigned& vi=1, const unsigned& si=1, const unsigned& ii=1);
-
+    bool isDead();
     void updateTraits();
     void fillHealth();
-    bool isDead();
     void damage(const unsigned &amount);
+    void displayStats();
 
 };
 
