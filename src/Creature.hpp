@@ -3,8 +3,10 @@
 
 #include <string.h>
 #include <iostream>
-
+#include <math.h>
 using namespace std;
+
+const unsigned MAX_HP = 20484;
 
 class Creature {
 
@@ -29,7 +31,8 @@ public:
              const unsigned& vi=1, const unsigned& si=1, const unsigned& ii=1);
     bool isDead();
     void updateTraits();
-    void fillHealth();
+
+    void heal(const unsigned& amount=MAX_HP);
     void damage(const unsigned &amount);
     void displayStats();
 

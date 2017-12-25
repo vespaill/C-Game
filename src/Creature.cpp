@@ -25,15 +25,19 @@ bool Creature::isDead() {
 
 void Creature::updateTraits() {
 
-    HP = vigor*10;
-    AP = strength*10;
-    MP = intelligence*10;
+    HP = 90 + vigor*(2*(vigor-1)+10);
+    AP = 45 + strength*(strength+4);
+    MP = 45 + intelligence*(intelligence+4);
+    LVL = vigor+strength+intelligence;
+
+    heal();
 
 }
 
-void Creature::fillHealth() {
+void Creature::heal(const unsigned& amount) {
 
-    curHP = HP;
+    unsigned total = curHP + amount;
+    curHP = (total > HP)? HP : total;
 
 }
 
