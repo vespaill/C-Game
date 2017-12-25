@@ -1,13 +1,9 @@
 #ifndef _CREATURE_HPP
 #define _CREATURE_HPP
 
-#include <string.h>
-#include <iostream>
-#include <math.h>
-using namespace std;
-
-const unsigned MAX_HP = 20484;
+#include "Clibrary.hpp"
 #define LVL_CAP 99
+const unsigned MAX_HP = 20484;
 
 class Creature {
 
