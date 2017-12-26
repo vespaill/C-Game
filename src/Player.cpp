@@ -18,17 +18,24 @@ void Player::levelUp() {
         curXp = curXp - xpNeededToLvl;
         xpNeededToLvl = pow(xpNeededToLvl, 2);
 
-        slightAllTraitsIncrement();
-        // chooseStatToLevel();
-
 }
 
-void Player::slightAllTraitsIncrement(const unsigned& amount) {
+void Player::promptLevelUpOptions() {
 
-    HP += amount;
-    AP += amount;
-    MP += amount;
+    char a;
+
+    std::cout << "Level up! Choose a stat to improve\n"
+                 "       Vigor - \'v\'\n"
+                 "    Strength - \'s\'\n"
+                 "intelligence - \'i\'\n: ";
+    while (true) {
+        std::cin >> a;
+        if (a == 'v' || a == 's' || a == 'i')
+            break;
+        std::cout << "Only options are v, s or i: ";
+    }
+    increaseOtherTraitsBonus(a);
+    increaseStat(a);
+    updateTraits();
 
 }
-
-

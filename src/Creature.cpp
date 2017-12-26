@@ -9,6 +9,10 @@ Creature::Creature(const std::string& ni, const int& xi, const int& yi,
     vigor = vi;
     strength = si;
     intelligence = ii;
+    // HPbonus = APbonus = MPbonus = 0;
+    HPbonus = 0;
+    APbonus = 0;
+    MPbonus = 0;
     updateTraits();
     heal();
 
@@ -29,6 +33,9 @@ Creature& Creature::operator=(const Creature& nc) {
     vigor = nc.vigor;
     strength = nc.strength;
     intelligence = nc.intelligence;
+    HPbonus = nc.HPbonus;
+    APbonus = nc.APbonus;
+    MPbonus = nc.MPbonus;
     return *this;
 
 }
@@ -39,11 +46,31 @@ bool Creature::isDead() {
 
 }
 
+
+void Creature::increaseOtherTraitsBonus(const char& trait, const unsigned& amount) {
+
+    switch (trait) {
+        case 'v':
+            APbonus += amount;
+            MPbonus += amount;
+            break;
+        case 's':
+            HPbonus += amount;
+            MPbonus += amount;
+            break;
+        case 'i':
+            HPbonus += amount;
+            APbonus += amount;
+            break;
+    }
+
+}
+
 void Creature::updateTraits() {
 
-    HP = 90 + vigor*(2*(vigor-1)+10);
-    AP = 45 + strength*(strength+4);
-    MP = 45 + intelligence*(intelligence+4);
+    HP = 90 + vigor*(2*(vigor-1)+10) + HPbonus;
+    AP = 45 + strength*(strength+4) + APbonus;
+    MP = 45 + intelligence*(intelligence+4) + MPbonus;
     LVL = vigor+strength+intelligence;
 
     heal();
@@ -63,7 +90,6 @@ void Creature::increaseStat(const char& stat, const unsigned& amount) {
             intelligence += amount;
             break;
     }
-    updateTraits();
 
 }
 
@@ -82,16 +108,26 @@ void Creature::damage(const unsigned &amount) {
 
 void Creature::displayCreatureInformation() {
 
-    std::cout << "        name : " << name << std::endl;
-    displayLocation();
-    displayStats();
-    displayTraits();
+    std::cout << "       name : " << name << std::endl;
+    // displayLocation();
+    displayStatsAndTraits();
+    // displayStats();
+    // displayTraits();
 
 }
 
 void Creature::displayLocation() {
 
     std::cout << " coordinates : (" << x << ", " << y << ')' << std::endl;
+
+}
+
+void Creature::displayStatsAndTraits() {
+
+    std::cout << "\tLVL : " << LVL << std::endl
+              << "HP : " << curHP << '/' << HP << "  \t       vigor : " << vigor << std::endl
+              << "AP : " << AP << "\t\t    strength : " << strength << std::endl
+              << "MP : " << MP << "\t\tintelligence : " << intelligence  << std::endl;
 
 }
 

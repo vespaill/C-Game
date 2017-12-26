@@ -23,6 +23,10 @@ protected:
     unsigned MP;             // Magic power
     unsigned LVL;
 
+    unsigned HPbonus;
+    unsigned APbonus;
+    unsigned MPbonus;
+
     unsigned curHP;
 
 public:
@@ -30,8 +34,11 @@ public:
              const unsigned& vi=1, const unsigned& si=1, const unsigned& ii=1);
     Creature(const Creature& nc);
 
+
     void increaseStat(const char& stat, const unsigned& amount=1);
+    void increaseOtherTraitsBonus(const char& trait, const unsigned& amount=3);
     void updateTraits();
+
 
     void heal(const unsigned& amount=MAX_HP);
     void damage(const unsigned &amount);
@@ -39,6 +46,7 @@ public:
 
     void displayCreatureInformation();
     void displayLocation();
+    void displayStatsAndTraits();
     void displayTraits();
     void displayStats();
 
